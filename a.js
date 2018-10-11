@@ -1,5 +1,10 @@
 const fs = require("fs");
 
-let a = ""; for(let i = 0; i < 10000000; i++) {a = a + "a"}
+function randStr(len) {
+    let s = '';
+    while (s.length < len) 
+      s += Math.random().toString(36).substr(2, len - s.length);
+    return s;
+  }
 
-fs.writeFileSync("test.txt", a);
+fs.writeFileSync("test.txt", randStr(10000000));
